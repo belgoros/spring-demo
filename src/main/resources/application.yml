@@ -1,0 +1,3 @@
+spring:
+  applicatiion:
+    name: spring-demo
