@@ -1,3 +1,18 @@
+# Spring Demo app with Docker multi-stage build
+
+### Run
+
+You can pass build arguments when building a Docker image as follows:
+```
+docker build --build-arg artifactid=spring-demo --build-arg version=0.0.1 -t spring-demo .
+```
+
+You can omit all of them as they have the same default values defined un the `Dockerfile`.
+So you will get the same result when building a shorter version:
+```
+docker build -t spring-demo .
+```
+
 # Getting Started
 
 ### Reference Documentation

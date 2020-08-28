@@ -9,8 +9,8 @@ COPY ./src ./src
 RUN mvn package -DskipTests
 
 FROM openjdk:8-jre-alpine
-ARG artifactid
-ARG version
+ARG artifactid=spring-demo
+ARG version=0.0.1
 ENV artifact ${artifactid}-${version}.jar
 WORKDIR /app
 
@@ -20,5 +20,3 @@ EXPOSE 8080
 
 ENTRYPOINT ["sh", "-c"]
 CMD ["java -jar ${artifact}"]
-
-# docker build --build-arg artifactid=spring-demo --build-arg version=0.0.1
