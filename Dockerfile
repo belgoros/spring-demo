@@ -18,5 +18,4 @@ COPY --from=build /app/target/${artifact} /app
 
 EXPOSE 8080
 
-ENTRYPOINT ["sh", "-c"]
-CMD ["java -jar ${artifact}"]
+CMD ["java", "-jar", "${artifact}"]
