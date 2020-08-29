@@ -6,7 +6,7 @@ COPY ./pom.xml ./pom.xml
 RUN mvn dependency:go-offline -B
 COPY ./src ./src
 
-RUN mvn package -DskipTests
+RUN mvn clean package -DskipTests
 
 FROM openjdk:8-jre-alpine
 ARG artifactid=spring-demo
@@ -18,4 +18,4 @@ COPY --from=build /app/target/${artifact} /app
 
 EXPOSE 8080
 
-CMD ["java", "-jar", "${artifact}"]
+CMD java -jar ${artifact}
