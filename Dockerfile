@@ -14,8 +14,8 @@ ARG version=0.0.1
 ENV artifact ${artifactid}-${version}.jar
 WORKDIR /app
 
-COPY --from=build /app/target/${artifact} /app
+COPY --from=build /app/target/${artifact} app.jar
 
 EXPOSE 8080
 
-CMD java -jar ${artifact}
+ENTRYPOINT ["java","-jar","app.jar"]
