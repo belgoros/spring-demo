@@ -1,4 +1,4 @@
-package com.sca.config;
+package com.example.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(jsr250Enabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true, securedEnabled = true, jsr250Enabled = true)
 public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 
     @Override
@@ -28,11 +28,10 @@ public class KeycloakSecurityConfig extends KeycloakWebSecurityConfigurerAdapter
                 .anyRequest()
                 .permitAll();
         http.csrf().disable();
-
     }
 
     @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) {
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         KeycloakAuthenticationProvider keycloakAuthenticationProvider = keycloakAuthenticationProvider();
         keycloakAuthenticationProvider.setGrantedAuthoritiesMapper(new SimpleAuthorityMapper());
         auth.authenticationProvider(keycloakAuthenticationProvider);
