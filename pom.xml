@@ -15,11 +15,10 @@
     <description>Demo project for Spring Boot</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
         <keycloak.version>11.0.2</keycloak.version>
         <spring.boot.starter.securiry.version>2.3.3.RELEASE</spring.boot.starter.securiry.version>
         <junit.jupiter.version>5.7.0</junit.jupiter.version>
-		<springaddons.version>2.3.4</springaddons.version>
     </properties>
 
     <dependencyManagement>
@@ -53,13 +52,6 @@
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
             <version>${junit.jupiter.version}</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.c4-soft.springaddons</groupId>
-            <artifactId>spring-security-oauth2-test-webmvc-addons</artifactId>
-            <version>${springaddons.version}</version>
             <scope>test</scope>
         </dependency>
 
