@@ -1,3 +1,13 @@
+server:
+  port: 8000
 spring:
   application:
     name: spring-demo
+keycloak:
+  realm: demo
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  resource: springboot-microservice
+  credentials.secret: 85a58c55-dd32-4205-a568-f82ae710edd1
+  use-resource-role-mappings: true
+  bearer-only: true
