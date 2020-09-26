@@ -14,6 +14,14 @@ So you will get the same result when building a shorter version:
 docker build -t spring-demo .
 ```
 
+### Tests
+
+To test, the [keycloak-mock](https://github.com/TNG/keycloak-mock) was used.
+
+**NOTE:** Stop your local Keycloak server if it runs, otherwise, tests will fail.
+
+To run the tests, open your terminal and just run `mvn clean test`, all the tests should pass.
+
 # Getting Started
 
 ### Reference Documentation
