@@ -55,6 +55,18 @@ class TestControllerTest {
         mockMvc.perform(get("/test/admin")
                 .header("Authorization", "Bearer " + accessToken))
                 .andExpect(status().isOk());
-        keycloakMock.stop();
+    }
+
+    @Test
+    public void shouldGrantAccessToUsersWithValidToken() throws Exception {
+        TokenConfig tokenConfig = aTokenConfig()
+                .withPreferredUsername("employee1")
+                .withResourceRole("springboot-microservice", "user")
+                .build();
+        String accessToken = keycloakMock.getAccessToken(tokenConfig);
+
+        mockMvc.perform(get("/test/user")
+                .header("Authorization", "Bearer " + accessToken))
+                .andExpect(status().isOk());
     }
 }
