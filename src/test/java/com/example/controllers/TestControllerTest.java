@@ -18,7 +18,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class TestControllerTest {
 
-    static KeycloakMock keycloakMock = new KeycloakMock(8000, "master");
+    static KeycloakMock keycloakMock = new KeycloakMock(8080, "demo");
 
     @BeforeAll
     static void setUp() {
@@ -48,7 +48,8 @@ class TestControllerTest {
     public void shouldRespondOKforAdminIfTokenPresent() throws Exception {
         TokenConfig tokenConfig = aTokenConfig()
                 .withPreferredUsername("employee2")
-                .withRealmRole("ROLE_ADMIN").build();
+                .withResourceRole("springboot-microservice", "ROLE_admin")
+                .build();
         String accessToken = keycloakMock.getAccessToken(tokenConfig);
 
         mockMvc.perform(get("/test/admin")
