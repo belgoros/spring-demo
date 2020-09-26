@@ -1,12 +1,8 @@
 server:
-  port: 8000
+  port: 8200
 spring:
-  profiles:
-    include:
-      - dev
-      - prod
   application:
-    name: spring-demo
+    name: spring-demo-local
 keycloak:
   realm: demo
   auth-server-url: http://localhost:8080/auth
