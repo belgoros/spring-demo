@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import com.tngtech.keycloakmock.api.KeycloakMock;
+import com.tngtech.keycloakmock.api.ServerConfig;
 import com.tngtech.keycloakmock.api.TokenConfig;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -18,7 +19,10 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @AutoConfigureMockMvc
 class TestControllerTest {
 
-    static KeycloakMock keycloakMock = new KeycloakMock(8080, "demo");
+    static KeycloakMock keycloakMock = new KeycloakMock(ServerConfig.aServerConfig()
+            .withPort(8080)
+            .withRealm("demo")
+            .build());
 
     @BeforeAll
     static void setUp() {
