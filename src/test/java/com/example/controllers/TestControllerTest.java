@@ -40,7 +40,7 @@ class TestControllerTest {
     }
 
     @Test
-    public void whenNoRolesSpecifiedThenSecuredRouteIsForbidden() throws Exception {
+    public void whenNoRolesSpecifiedThenSecuredRouteIsUnauthorized() throws Exception {
         mockMvc.perform(get("/test/admin")).andExpect(status().isUnauthorized());
     }
 
