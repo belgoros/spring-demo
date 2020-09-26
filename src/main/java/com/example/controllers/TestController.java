@@ -1,6 +1,7 @@
 package com.example.controllers;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,17 +16,17 @@ public class TestController {
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)
-    public ResponseEntity<String> getUser() {
+    public ResponseEntity<String> getUser(@RequestHeader("Authorization") String token) {
         return ResponseEntity.ok("Hello User");
     }
 
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public ResponseEntity<String> getAdmin() {
+    public ResponseEntity<String> getAdmin(@RequestHeader("Authorization") String token) {
         return ResponseEntity.ok("Hello Admin");
     }
 
     @RequestMapping(value = "/all-user", method = RequestMethod.GET)
-    public ResponseEntity<String> getAllUser() {
+    public ResponseEntity<String> getAllUser(@RequestHeader("Authorization") String token) {
         return ResponseEntity.ok("Hello All User");
     }
 
