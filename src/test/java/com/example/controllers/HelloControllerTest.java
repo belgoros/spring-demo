@@ -22,7 +22,7 @@ class HelloControllerTest {
     public void shouldBeAccessedWithoutToken() throws Exception {
         this.mockMvc.perform(get("/hello").param("greeting", "John"))
                 .andDo(print())
-                .andExpect(MockMvcResultMatchers.content().string(containsString("spring-demo: Welcome, John!")))
+                .andExpect(MockMvcResultMatchers.content().string(containsString("spring-demo-local: Welcome, John!")))
                 .andExpect(status().isOk());
     }
 

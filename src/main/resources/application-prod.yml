@@ -1,3 +1,6 @@
 server:
   port: 8800
+spring:
+  application:
+    name: spring-demo-prod
 # put some other production key-values here
