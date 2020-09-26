@@ -45,10 +45,10 @@ class TestControllerTest {
     }
 
     @Test
-    public void shouldRespondOKforAdminIfTokenPresent() throws Exception {
+    public void shouldGrantAccessToAdminsWithValidToken() throws Exception {
         TokenConfig tokenConfig = aTokenConfig()
                 .withPreferredUsername("employee2")
-                .withResourceRole("springboot-microservice", "ROLE_admin")
+                .withResourceRole("springboot-microservice", "admin")
                 .build();
         String accessToken = keycloakMock.getAccessToken(tokenConfig);
 
